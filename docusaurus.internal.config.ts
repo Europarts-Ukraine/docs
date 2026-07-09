@@ -3,23 +3,23 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'BAS Platform Docs',
-  tagline: 'Customer Help Center and integration reference',
+  title: 'BAS Internal Docs',
+  tagline: 'Internal implementation, support, engineering, and operations knowledge base',
   favicon: 'img/favicon.ico',
 
   future: {
     v4: true,
   },
 
-  url: 'https://docs.bas-platform.example.com',
+  url: 'https://internal-docs.bas-platform.example.com',
   baseUrl: '/',
   organizationName: 'bas-platform',
-  projectName: 'bas-platform-docs',
+  projectName: 'bas-platform-internal-docs',
   customFields: {
-    homePrimaryPath: '/docs/public/intro',
-    homePrimaryLabel: 'Open public docs',
-    homeSecondaryPath: '/docs/public/imports',
-    homeSecondaryLabel: 'Start with imports',
+    homePrimaryPath: '/docs/internal/intro',
+    homePrimaryLabel: 'Open internal docs',
+    homeSecondaryPath: '/docs/public/intro',
+    homeSecondaryLabel: 'Open public docs',
   },
   onBrokenLinks: 'throw',
   markdown: {
@@ -38,9 +38,9 @@ const config: Config = {
       'classic',
       {
         docs: {
-          path: 'content/public',
-          routeBasePath: 'docs/public',
-          sidebarPath: './sidebars.public.ts',
+          path: 'content',
+          routeBasePath: 'docs',
+          sidebarPath: './sidebars.internal.ts',
         },
         blog: false,
         theme: {
@@ -56,7 +56,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'BAS Platform Docs',
+      title: 'BAS Internal Docs',
       logo: {
         alt: 'BAS Platform',
         src: 'img/logo.svg',
@@ -64,9 +64,9 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'publicSidebar',
+          sidebarId: 'internalSidebar',
           position: 'left',
-          label: 'Public Docs',
+          label: 'Internal Docs',
         },
       ],
     },
@@ -74,20 +74,20 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Internal Docs',
           items: [
             {
-              label: 'Public Docs',
-              to: '/docs/public/intro',
+              label: 'Knowledge Base',
+              to: '/docs/internal/intro',
             },
             {
-              label: 'Integrations',
-              to: '/docs/public/integrations/overview',
+              label: 'Customer Docs',
+              to: '/docs/public/intro',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} BAS Platform.`,
+      copyright: `Copyright © ${new Date().getFullYear()} BAS Platform. Internal use only.`,
     },
     prism: {
       theme: prismThemes.github,

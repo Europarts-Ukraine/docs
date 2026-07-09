@@ -1,66 +1,80 @@
 import type {ReactNode} from 'react';
-import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  label: string;
   description: ReactNode;
+  items: string[];
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Customer Help Center',
+    label: 'Public',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Task-based guides for users working with catalog data, imports,
+        mappings, pricing, channels, exports, roles, and troubleshooting.
       </>
     ),
+    items: ['Catalog workflows', 'Import diagnostics', 'Export readiness'],
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Integration Reference',
+    label: 'Public when enabled',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Customer-safe API and export-format documentation for supported
+        external integrations.
       </>
     ),
+    items: ['Authentication', 'Export formats', 'Error contracts'],
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Troubleshooting',
+    label: 'Public',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Practical checks for common user-facing issues such as failed imports,
+        missing prices, empty exports, and access problems.
       </>
     ),
+    items: ['Import errors', 'Access issues', 'Export readiness'],
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({title, label, description, items}: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
+    <article className={styles.featureCard}>
+      <div className={styles.featureLabel}>{label}</div>
+      <div>
         <Heading as="h3">{title}</Heading>
         <p>{description}</p>
       </div>
-    </div>
+      <ul>
+        {items.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    </article>
   );
 }
 
 export default function HomepageFeatures(): ReactNode {
   return (
     <section className={styles.features}>
-      <div className="container">
-        <div className="row">
+      <div className={styles.inner}>
+        <div className={styles.sectionHeader}>
+          <span>Documentation areas</span>
+          <Heading as="h2">Built for the people who actually use each layer.</Heading>
+          <p>
+            Public documentation stays focused on tasks, safe integrations, and
+            common operational questions.
+          </p>
+        </div>
+        <div className={styles.grid}>
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}

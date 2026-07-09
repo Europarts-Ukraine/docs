@@ -5,7 +5,11 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "docusaurus build",
+    "start:public": "docusaurus start",
+    "start:internal": "docusaurus start --config docusaurus.internal.config.ts --port 3001",
+    "build": "docusaurus build && node scripts/validate-public-build.mjs",
+    "build:public": "docusaurus build && node scripts/validate-public-build.mjs",
+    "build:internal": "docusaurus build --config docusaurus.internal.config.ts --out-dir build-internal",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",

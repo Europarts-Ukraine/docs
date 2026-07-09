@@ -1,23 +1,177 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+.hero {
+  background:
+    linear-gradient(135deg, rgba(12, 31, 48, 0.96), rgba(20, 58, 80, 0.9)),
+    url('/img/bas-docs-hero.svg');
+  background-position: center;
+  background-size: cover;
+  color: #fff;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+.heroInner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  gap: 3rem;
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 6rem 1.5rem;
+}
+
+.heroCopy {
+  max-width: 720px;
+}
+
+.eyebrow,
+.sectionLabel {
+  color: #7dd3fc;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  color: #fff;
+  font-size: 3.35rem;
+  line-height: 1.05;
+  margin-bottom: 1.25rem;
+}
+
+.heroSubtitle {
+  color: #dbeafe;
+  font-size: 1.18rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 620px;
 }
 
 .buttons {
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  border-radius: 7px;
+  font-weight: 700;
+  padding: 0.85rem 1rem;
+}
+
+.primaryButton {
+  background: #f8fafc;
+  color: #102a3f;
+}
+
+.primaryButton:hover {
+  color: #102a3f;
+  text-decoration: none;
+}
+
+.secondaryButton {
+  border: 1px solid rgba(226, 232, 240, 0.45);
+  color: #f8fafc;
+}
+
+.secondaryButton:hover {
+  color: #f8fafc;
+  text-decoration: none;
+}
+
+.workflowPanel {
+  align-self: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(226, 232, 240, 0.18);
+  border-radius: 8px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+  padding: 1.25rem;
+}
+
+.workflowHeader {
+  border-bottom: 1px solid rgba(226, 232, 240, 0.18);
+  color: #bae6fd;
+  font-weight: 800;
+  padding-bottom: 0.85rem;
+}
+
+.workflowList {
+  counter-reset: flow;
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.workflowList li {
   align-items: center;
-  justify-content: center;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.14);
+  color: #f8fafc;
+  display: flex;
+  gap: 0.8rem;
+  padding: 0.85rem 0;
+}
+
+.workflowList li::before {
+  background: #38bdf8;
+  border-radius: 999px;
+  color: #082f49;
+  content: counter(flow);
+  counter-increment: flow;
+  display: inline-grid;
+  flex: 0 0 1.75rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  height: 1.75rem;
+  place-items: center;
+  width: 1.75rem;
+}
+
+.workflowList li:last-child {
+  border-bottom: 0;
+}
+
+.splitSection {
+  background: var(--bas-surface-muted);
+  padding: 4rem 0;
+}
+
+.splitInner {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 0 1.5rem;
+}
+
+.targetGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.targetCard {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.targetCard h3 {
+  margin-top: 0;
+}
+
+@media screen and (max-width: 996px) {
+  .heroInner,
+  .splitInner,
+  .targetGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroInner {
+    padding: 4rem 1.25rem;
+  }
+
+  .heroTitle {
+    font-size: 2.4rem;
+  }
 }

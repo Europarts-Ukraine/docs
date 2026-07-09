@@ -1,11 +1,88 @@
 .features {
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
-  width: 100%;
+  background: var(--ifm-background-color);
+  padding: 4rem 0;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.inner {
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 0 1.5rem;
+}
+
+.sectionHeader {
+  max-width: 680px;
+}
+
+.sectionHeader span {
+  color: var(--ifm-color-primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sectionHeader p {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 2rem;
+}
+
+.featureCard {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+  padding: 1.25rem;
+}
+
+.featureCard h3 {
+  margin-top: 0.7rem;
+}
+
+.featureCard p {
+  color: var(--ifm-color-emphasis-700);
+}
+
+.featureCard ul {
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  list-style: none;
+  margin: auto 0 0;
+  padding: 1rem 0 0;
+}
+
+.featureCard li {
+  color: var(--ifm-color-emphasis-800);
+  padding: 0.25rem 0;
+}
+
+.featureCard li::before {
+  color: var(--ifm-color-primary);
+  content: "•";
+  font-weight: 800;
+  margin-right: 0.55rem;
+}
+
+.featureLabel {
+  align-self: flex-start;
+  background: var(--bas-accent-soft);
+  border-radius: 999px;
+  color: var(--ifm-color-primary-darkest);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.25rem 0.65rem;
+}
+
+@media screen and (max-width: 996px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }

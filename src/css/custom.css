@@ -1,30 +1,90 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #0f7490;
+  --ifm-color-primary-dark: #0d6882;
+  --ifm-color-primary-darker: #0c627a;
+  --ifm-color-primary-darkest: #0a5165;
+  --ifm-color-primary-light: #11809e;
+  --ifm-color-primary-lighter: #1286a6;
+  --ifm-color-primary-lightest: #1498bd;
+  --ifm-background-color: #f8fafc;
+  --ifm-background-surface-color: #ffffff;
+  --ifm-heading-color: #102a3f;
+  --ifm-navbar-background-color: rgba(255, 255, 255, 0.94);
+  --ifm-navbar-shadow: 0 1px 0 rgba(15, 23, 42, 0.08);
+  --ifm-footer-background-color: #0c1f30;
   --ifm-code-font-size: 95%;
+  --ifm-font-family-base:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --ifm-font-family-monospace:
+    "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --bas-surface-muted: #eef6fa;
+  --bas-accent-soft: #d8f3fc;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #67d5f5;
+  --ifm-color-primary-dark: #45cbed;
+  --ifm-color-primary-darker: #34c5e8;
+  --ifm-color-primary-darkest: #159fbe;
+  --ifm-color-primary-light: #89dff7;
+  --ifm-color-primary-lighter: #9ae5fa;
+  --ifm-color-primary-lightest: #c4f1fc;
+  --ifm-background-color: #071724;
+  --ifm-background-surface-color: #0e2536;
+  --ifm-heading-color: #f8fafc;
+  --ifm-navbar-background-color: rgba(7, 23, 36, 0.96);
+  --ifm-footer-background-color: #071724;
+  --bas-surface-muted: #0b2030;
+  --bas-accent-soft: #123a50;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #1e293b;
+}
+
+[data-theme='dark'] body {
+  color: #dbeafe;
+}
+
+.navbar__title {
+  font-weight: 800;
+}
+
+.navbar__link {
+  font-weight: 650;
+}
+
+.menu__link {
+  border-radius: 7px;
+}
+
+.theme-doc-sidebar-container {
+  border-right: 1px solid var(--ifm-color-emphasis-200) !important;
+}
+
+.markdown h1:first-child {
+  font-size: 2.35rem;
+  letter-spacing: -0.02em;
+}
+
+.markdown h2 {
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+}
+
+.markdown table {
+  display: table;
+  width: 100%;
+}
+
+.footer {
+  border-top: 1px solid rgba(226, 232, 240, 0.12);
 }
