@@ -1,9 +1,13 @@
-# BAS Platform Documentation
+# PAD Platform Documentation
 
-This Docusaurus project contains two documentation builds:
+This Docusaurus project contains two isolated documentation products and one
+development workspace:
 
 - **Public docs**: customer Help Center and customer-safe integration reference.
-- **Internal docs**: public docs plus implementation, support, engineering, architecture, operations, and decisions.
+- **Internal docs**: implementation, support, engineering, architecture,
+  operations, and decisions for the PAD team.
+- **Workspace**: local-only gateway that exposes both products with separate
+  sidebars.
 
 The public build must not expose source code, deployment internals, private architecture notes, secrets, or implementation-only behavior.
 
@@ -13,13 +17,26 @@ The public build must not expose source code, deployment internals, private arch
 pnpm install
 ```
 
-## Local Development - Public Docs
+## Local Development - Combined Workspace
 
 ```bash
 pnpm start
 ```
 
-Public docs use `docusaurus.config.ts` and `content/public`.
+The default development server uses `docusaurus.workspace.config.ts`. Open
+`http://localhost:3000/`, then choose internal or public documentation.
+
+Inside either documentation product, the logo returns to the workspace root.
+The left sidebar only shows pages for the current audience.
+
+## Local Development - Public Docs Only
+
+```bash
+pnpm start:public
+```
+
+Public docs use `docusaurus.config.ts` and `content/public`. Open
+`http://localhost:3000/docs/public/intro`.
 
 ## Local Development - Internal Docs
 
@@ -27,7 +44,13 @@ Public docs use `docusaurus.config.ts` and `content/public`.
 pnpm start:internal
 ```
 
-Internal docs use `docusaurus.internal.config.ts` and the full `content` tree.
+Internal docs use `docusaurus.internal.config.ts`. Only `content/internal` is
+included in this target. Open
+`http://localhost:3001/docs/internal/intro`.
+
+The development targets intentionally do not share Rspack's persistent
+module graph. If an older checkout already has a corrupted cache, run
+`pnpm clear` once before starting either target.
 
 ## Build
 
@@ -37,6 +60,7 @@ pnpm build:internal
 ```
 
 Public output is written to `build`. Internal output is written to `build-internal`.
+`build:workspace` exists for local QA only and must not be deployed.
 
 ## Content Layout
 
@@ -60,7 +84,7 @@ They are built and published separately.
 
 ### Public User Documentation
 
-Public documentation is for customers and everyday users of BAS Platform. It is
+Public documentation is for customers and everyday users of PAD Platform. It is
 published from `content/public` and is available under `/docs/public/...`.
 
 It should contain:
@@ -88,7 +112,7 @@ It must not contain:
 
 ### Internal Developer Documentation
 
-Internal documentation is for the BAS Platform team. It is published from the
+Internal documentation is for the PAD Platform team. It is published from the
 full `content` tree and is available under `/docs/internal/...`, while also
 including the public docs under `/docs/public/...`.
 
@@ -121,7 +145,7 @@ Internal pages should live under `content/internal`.
 ### Markdown vs MDX
 
 Use `.md` for normal documentation. Use `.mdx` only when a page needs React
-components or JSX inside the document. Most BAS docs should stay as `.md`
+components or JSX inside the document. Most PAD docs should stay as `.md`
 because they are easier to edit, review, and move between systems.
 
 ### Safety Rule

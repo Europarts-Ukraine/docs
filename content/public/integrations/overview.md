@@ -1,6 +1,6 @@
 # Integrations
 
-Integration documentation describes stable external contracts for customers or partners who connect to BAS Platform.
+Integration documentation describes stable external contracts for customers or partners who connect to PAD Platform.
 
 This section is not source-code documentation. It should describe only supported external behavior.
 
@@ -21,4 +21,3 @@ This section is not source-code documentation. It should describe only supported
 - deployment secrets;
 - implementation-only endpoints;
 - unsupported internal behavior.
-

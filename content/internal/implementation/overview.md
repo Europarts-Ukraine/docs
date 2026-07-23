@@ -1,6 +1,6 @@
 # Implementation Guide
 
-Implementation documentation is for the team configuring BAS Platform for a customer.
+Implementation documentation is for the team configuring PAD Platform for a customer.
 
 It sits between customer documentation and engineering documentation.
 
@@ -13,4 +13,3 @@ It sits between customer documentation and engineering documentation.
 - permission setup;
 - channel and export setup;
 - acceptance checklist before handover.
-

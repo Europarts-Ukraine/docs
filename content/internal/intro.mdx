@@ -1,0 +1,153 @@
+---
+title: PAD Platform Internal Documentation
+sidebar_label: Start here
+description: Internal architecture, engineering, implementation, operations, and support knowledge for PAD Platform.
+hide_title: true
+hide_table_of_contents: true
+---
+
+import DocumentationLanding from '@site/src/components/DocumentationLanding';
+
+<DocumentationLanding
+  hero={{
+    title: 'Understand the platform. Deliver with context.',
+    description:
+      'The operating map for Product Data Automation Platform: how supplier data becomes a governed catalog, how services and modules fit together, and how we deploy and support each isolated customer installation.',
+    primary: {
+      label: 'Start with system overview',
+      to: '/docs/internal/architecture/system-overview',
+    },
+    secondary: {
+      label: 'See deployment model',
+      to: '/docs/internal/operations/deployment-model',
+    },
+    metrics: [
+      {value: '19', label: 'backend applications'},
+      {value: '17', label: 'frontend modules'},
+      {value: '45', label: 'architecture diagrams'},
+      {value: '1', label: 'API contract'},
+    ],
+    stages: [
+      {label: 'Acquire', detail: 'Files, feeds, APIs, databases'},
+      {label: 'Govern', detail: 'Source-aware product catalog'},
+      {label: 'Automate', detail: 'Mapping, content, and pricing'},
+      {label: 'Publish', detail: 'Channels and export artifacts'},
+    ],
+  }}
+  paths={{
+    eyebrow: 'Choose your path',
+    title: 'Get to the right context quickly.',
+    description:
+      'Use the route that matches the work in front of you. Each path starts with the minimum mental model and then moves to implementation detail.',
+    items: [
+      {
+        eyebrow: 'New to PAD',
+        title: 'Build the product mental model',
+        description:
+          'Learn the system boundaries, the source-aware domain model, and the runtime flows before opening feature code.',
+        links: [
+          {label: 'System overview', to: '/docs/internal/architecture/system-overview'},
+          {label: 'Domain model', to: '/docs/internal/architecture/domain-model'},
+          {label: 'Runtime data flows', to: '/docs/internal/architecture/runtime-data-flows'},
+        ],
+      },
+      {
+        eyebrow: 'Engineering',
+        title: 'Change the product safely',
+        description:
+          'Find capability ownership, understand shared contracts, and follow the backend, frontend, and OpenAPI workflows.',
+        links: [
+          {label: 'Backend architecture', to: '/docs/internal/architecture/backend-architecture'},
+          {label: 'Frontend architecture', to: '/docs/internal/architecture/frontend-architecture'},
+          {label: 'API synchronization', to: '/docs/internal/engineering/api-sync'},
+        ],
+      },
+      {
+        eyebrow: 'Implementation',
+        title: 'Prepare a customer installation',
+        description:
+          'Gather data and infrastructure requirements, configure an isolated instance, and make ownership explicit.',
+        links: [
+          {label: 'Implementation overview', to: '/docs/internal/implementation/overview'},
+          {label: 'Client onboarding', to: '/docs/internal/implementation/onboarding-client'},
+          {label: 'Data requirements', to: '/docs/internal/implementation/data-requirements'},
+        ],
+      },
+      {
+        eyebrow: 'Operations & support',
+        title: 'Deploy, observe, and recover',
+        description:
+          'Understand the single-tenant operating model, production boundaries, and first-response playbooks.',
+        links: [
+          {label: 'Deployment model', to: '/docs/internal/operations/deployment-model'},
+          {label: 'Operations overview', to: '/docs/internal/operations/overview'},
+          {label: 'Support playbooks', to: '/docs/internal/support/overview'},
+        ],
+      },
+    ],
+  }}
+  areas={{
+    eyebrow: 'Platform map',
+    title: 'The system by responsibility.',
+    description:
+      'PAD is modular, but the workflows cross application boundaries. Start with the business responsibility, then inspect the owning module.',
+    items: [
+      {
+        number: '01',
+        title: 'Acquire data',
+        description: 'Connections, imports, supplier feeds',
+        to: '/docs/internal/architecture/runtime-data-flows',
+      },
+      {
+        number: '02',
+        title: 'Model the catalog',
+        description: 'Entities, sources, custom metadata',
+        to: '/docs/internal/architecture/domain-model',
+      },
+      {
+        number: '03',
+        title: 'Resolve equivalence',
+        description: 'Mappings and product relationships',
+        to: '/docs/internal/architecture/runtime-data-flows',
+      },
+      {
+        number: '04',
+        title: 'Price and enrich',
+        description: 'Rules, channels, localized content',
+        to: '/docs/internal/architecture/runtime-data-flows',
+      },
+      {
+        number: '05',
+        title: 'Publish outcomes',
+        description: 'Selections, exports, downstream systems',
+        to: '/docs/internal/architecture/runtime-data-flows',
+      },
+      {
+        number: '06',
+        title: 'Control the platform',
+        description: 'RBAC, history, scheduling, recovery',
+        to: '/docs/internal/architecture/rbac',
+      },
+    ],
+  }}
+  sources={{
+    eyebrow: 'Sources of truth',
+    title: 'Know what is authoritative.',
+    description:
+      'Documentation explains intent and ownership. These committed contracts define what the running product must implement.',
+    items: [
+      {concern: 'HTTP contract', source: 'backend/openapi/api.yml'},
+      {concern: 'Transport types', source: 'frontend/src/shared/types/api.generated.ts'},
+      {concern: 'Navigation model', source: 'frontend/src/app/navigation/navigation-schema.ts'},
+      {concern: 'Frontend modules', source: 'frontend/src/app/registry/system-modules.ts'},
+      {concern: 'RBAC module keys', source: 'backend/src/users/registry.py'},
+    ],
+  }}
+  principle={{
+    label: 'Core mental model',
+    title: 'A product always keeps its source identity.',
+    description:
+      'Mappings describe equivalence across sources; they do not collapse source records into a hidden master product. Channels, enrichment, pricing, and exports consume that explicit source-aware catalog.',
+    link: {label: 'Read the domain model', to: '/docs/internal/architecture/domain-model'},
+  }}
+/>

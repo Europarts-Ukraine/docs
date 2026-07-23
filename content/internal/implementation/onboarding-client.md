@@ -1,6 +1,6 @@
 # Onboarding A New Client
 
-Use this page as the starting checklist for a new BAS Platform installation.
+Use this page as the starting checklist for a new PAD Platform installation.
 
 ## Checklist
 
@@ -12,4 +12,3 @@ Use this page as the starting checklist for a new BAS Platform installation.
 6. Configure imports and run dry-runs.
 7. Configure channels and exports.
 8. Prepare support handover notes.
-

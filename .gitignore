@@ -4,6 +4,7 @@
 # Production
 /build
 /build-internal
+/build-workspace
 
 # Generated files
 .docusaurus

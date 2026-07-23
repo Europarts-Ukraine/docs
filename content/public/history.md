@@ -1,6 +1,6 @@
 # History
 
-History shows changes to important records in BAS Platform.
+History shows changes to important records in PAD Platform.
 
 It helps answer:
 
@@ -21,4 +21,3 @@ It helps answer:
 ## Notes
 
 History availability can depend on module permissions and retention settings.
-

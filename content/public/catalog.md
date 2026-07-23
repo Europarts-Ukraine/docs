@@ -2,7 +2,7 @@
 
 The catalog is the central place for product-related data.
 
-It includes products, categories, brands, attributes, product families, product models, warehouses, and stock records. The exact available fields can differ by installation because BAS Platform supports custom fields and custom entities.
+It includes products, categories, brands, attributes, product families, product models, warehouses, and stock records. The exact available fields can differ by installation because PAD Platform supports custom fields and custom entities.
 
 ## Common Tasks
 
@@ -31,4 +31,3 @@ If a product is missing or outdated, check:
 2. whether the product was filtered by source or category;
 3. whether it was soft-deleted or archived;
 4. whether your role has access to the required module.
-

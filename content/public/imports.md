@@ -1,6 +1,6 @@
 # Imports
 
-Imports load data from files, databases, supplier feeds, or other configured sources into BAS Platform.
+Imports load data from files, databases, supplier feeds, or other configured sources into PAD Platform.
 
 The import process is designed to protect business data. The system validates input before writing changes to the working catalog.
 

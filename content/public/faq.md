@@ -1,8 +1,8 @@
 # FAQ
 
-## Is BAS Platform an ERP?
+## Is PAD Platform an ERP?
 
-No. BAS Platform complements ERP, CRM, and accounting systems. It focuses on product, supplier, pricing, content, channel, and export data.
+No. PAD Platform complements ERP, CRM, and accounting systems. It focuses on product, supplier, pricing, content, channel, and export data.
 
 ## Can users access the source code?
 
@@ -19,4 +19,3 @@ Typical reasons include channel scope, missing required fields, missing prices, 
 ## Can every field be edited manually?
 
 No. Some fields are calculated, imported, read-only, or controlled by permissions.
-

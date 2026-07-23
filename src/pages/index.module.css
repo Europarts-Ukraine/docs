@@ -1,45 +1,62 @@
 .hero {
   background:
-    linear-gradient(135deg, rgba(12, 31, 48, 0.96), rgba(20, 58, 80, 0.9)),
-    url('/img/bas-docs-hero.svg');
-  background-position: center;
-  background-size: cover;
-  color: #fff;
+    radial-gradient(circle at 18% 8%, var(--pad-hero-glow), transparent 27%),
+    var(--pad-hero-background);
+  border-bottom: 1px solid var(--pad-border);
+  color: var(--pad-hero-text);
+  overflow: hidden;
+  position: relative;
+}
+
+.hero::after {
+  background-image:
+    linear-gradient(var(--pad-hero-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--pad-hero-grid) 1px, transparent 1px);
+  background-size: 48px 48px;
+  content: '';
+  inset: 0;
+  mask-image: linear-gradient(to left, #000, transparent 65%);
+  pointer-events: none;
+  position: absolute;
 }
 
 .heroInner {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
-  gap: 3rem;
+  gap: 4rem;
+  grid-template-columns: minmax(0, 1.15fr) minmax(330px, 0.65fr);
   margin: 0 auto;
   max-width: 1180px;
-  padding: 6rem 1.5rem;
+  padding: clamp(5rem, 10vw, 8rem) 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .heroCopy {
-  max-width: 720px;
+  max-width: 760px;
 }
 
 .eyebrow,
 .sectionLabel {
-  color: #7dd3fc;
-  font-size: 0.78rem;
-  font-weight: 700;
+  color: var(--pad-accent);
+  font-size: 0.73rem;
+  font-weight: 760;
   letter-spacing: 0.12em;
-  margin-bottom: 1rem;
+  margin: 0 0 1rem;
   text-transform: uppercase;
 }
 
 .heroTitle {
-  color: #fff;
-  font-size: 3.35rem;
-  line-height: 1.05;
-  margin-bottom: 1.25rem;
+  color: var(--pad-hero-text);
+  font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+  font-weight: 760;
+  letter-spacing: -0.055em;
+  line-height: 0.99;
+  margin: 0 0 1.4rem;
 }
 
 .heroSubtitle {
-  color: #dbeafe;
-  font-size: 1.18rem;
+  color: var(--pad-hero-muted);
+  font-size: 1.08rem;
   line-height: 1.7;
   margin-bottom: 2rem;
   max-width: 620px;
@@ -48,130 +65,223 @@
 .buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.85rem;
+  gap: 0.75rem;
+}
+
+.buttons a {
+  gap: 0.65rem;
 }
 
 .primaryButton,
 .secondaryButton {
-  border-radius: 7px;
+  align-items: center;
+  border-radius: 10px;
+  display: inline-flex;
+  font-size: 0.88rem;
   font-weight: 700;
-  padding: 0.85rem 1rem;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0.75rem 1rem;
+  transition: transform 150ms ease, background 150ms ease;
 }
 
 .primaryButton {
-  background: #f8fafc;
-  color: #102a3f;
+  background: var(--pad-hero-button);
+  color: var(--pad-hero-button-text);
 }
 
 .primaryButton:hover {
-  color: #102a3f;
+  color: var(--pad-hero-button-text);
   text-decoration: none;
+  transform: translateY(-1px);
 }
 
 .secondaryButton {
-  border: 1px solid rgba(226, 232, 240, 0.45);
-  color: #f8fafc;
+  border: 1px solid var(--pad-hero-control-border);
+  color: var(--pad-hero-text);
 }
 
 .secondaryButton:hover {
-  color: #f8fafc;
+  background: var(--pad-hero-control-hover);
+  color: var(--pad-hero-text);
   text-decoration: none;
 }
 
 .workflowPanel {
   align-self: center;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(226, 232, 240, 0.18);
-  border-radius: 8px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
-  padding: 1.25rem;
+  backdrop-filter: blur(18px);
+  background: var(--pad-flow-background);
+  border: 1px solid var(--pad-hero-control-border);
+  border-radius: 16px;
+  box-shadow: var(--pad-shadow-lg);
+  padding: 1.15rem;
 }
 
 .workflowHeader {
-  border-bottom: 1px solid rgba(226, 232, 240, 0.18);
-  color: #bae6fd;
-  font-weight: 800;
-  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--pad-hero-control-border);
+  color: var(--pad-hero-text);
+  font-size: 0.76rem;
+  font-weight: 740;
+  letter-spacing: 0.06em;
+  padding: 0.1rem 0.2rem 0.85rem;
+  text-transform: uppercase;
 }
 
 .workflowList {
   counter-reset: flow;
   list-style: none;
-  margin: 1rem 0 0;
+  margin: 0.4rem 0 0;
   padding: 0;
 }
 
 .workflowList li {
   align-items: center;
-  border-bottom: 1px solid rgba(226, 232, 240, 0.14);
-  color: #f8fafc;
+  color: var(--pad-hero-text);
   display: flex;
+  font-size: 0.82rem;
   gap: 0.8rem;
-  padding: 0.85rem 0;
+  padding: 0.7rem 0.2rem;
 }
 
 .workflowList li::before {
-  background: #38bdf8;
-  border-radius: 999px;
-  color: #082f49;
-  content: counter(flow);
+  border: 1px solid var(--pad-hero-control-border);
+  border-radius: 8px;
+  color: var(--pad-hero-muted);
+  content: counter(flow, decimal-leading-zero);
   counter-increment: flow;
-  display: inline-grid;
-  flex: 0 0 1.75rem;
-  font-size: 0.85rem;
-  font-weight: 800;
-  height: 1.75rem;
-  place-items: center;
-  width: 1.75rem;
-}
-
-.workflowList li:last-child {
-  border-bottom: 0;
-}
-
-.splitSection {
-  background: var(--bas-surface-muted);
-  padding: 4rem 0;
-}
-
-.splitInner {
   display: grid;
-  gap: 2rem;
-  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
+  flex: 0 0 32px;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.65rem;
+  height: 32px;
+  place-items: center;
+}
+
+.gatewaySection {
+  background: var(--pad-surface-muted);
+  border-top: 1px solid var(--pad-border);
+  padding: clamp(4rem, 8vw, 6.5rem) 0;
+}
+
+.gatewayInner {
   margin: 0 auto;
   max-width: 1180px;
   padding: 0 1.5rem;
 }
 
+.sectionHeader {
+  max-width: 720px;
+}
+
+.sectionHeader h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.045em;
+  line-height: 1.08;
+  margin: 0;
+}
+
+.sectionHeader > p:last-child {
+  color: var(--pad-text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 1rem 0 0;
+}
+
 .targetGrid {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  margin-top: 2.25rem;
 }
 
 .targetCard {
-  background: var(--ifm-background-surface-color);
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 8px;
-  padding: 1.25rem;
+  background: var(--pad-surface);
+  border: 1px solid var(--pad-border);
+  border-radius: 14px;
+  box-shadow: var(--pad-shadow-sm);
+  color: var(--ifm-font-color-base);
+  display: flex;
+  flex-direction: column;
+  min-height: 290px;
+  padding: 1.5rem;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.targetCard:hover {
+  border-color: var(--pad-border-strong);
+  box-shadow: var(--pad-shadow-md);
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  transform: translateY(-3px);
+}
+
+.targetIcon {
+  align-items: center;
+  background: var(--pad-surface-muted);
+  border: 1px solid var(--pad-border);
+  border-radius: 11px;
+  color: var(--pad-accent);
+  display: inline-flex;
+  height: 42px;
+  justify-content: center;
+  width: 42px;
+}
+
+.targetIcon svg {
+  height: 22px;
+  width: 22px;
+}
+
+.targetEyebrow {
+  color: var(--pad-text-faint);
+  font-size: 0.68rem;
+  font-weight: 730;
+  letter-spacing: 0.09em;
+  margin-top: 1.35rem;
+  text-transform: uppercase;
 }
 
 .targetCard h3 {
-  margin-top: 0;
+  font-size: 1.3rem;
+  letter-spacing: -0.025em;
+  margin: 0.55rem 0 0;
 }
 
-@media screen and (max-width: 996px) {
-  .heroInner,
-  .splitInner,
-  .targetGrid {
+.targetDescription {
+  color: var(--pad-text-muted);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  margin-top: 0.75rem;
+}
+
+.targetLink {
+  align-items: center;
+  border-top: 1px solid var(--pad-border);
+  color: var(--ifm-heading-color);
+  display: flex;
+  font-size: 0.8rem;
+  font-weight: 700;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+@media (max-width: 996px) {
+  .heroInner {
+    gap: 2.5rem;
     grid-template-columns: 1fr;
   }
+}
 
+@media (max-width: 640px) {
   .heroInner {
-    padding: 4rem 1.25rem;
+    padding: 4rem 1rem;
   }
 
-  .heroTitle {
-    font-size: 2.4rem;
+  .targetCard {
+    min-height: 250px;
   }
 }

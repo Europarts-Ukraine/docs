@@ -1,6 +1,6 @@
 # Getting Started
 
-This section introduces the main areas of BAS Platform.
+This section introduces the main areas of PAD Platform.
 
 ## Main Workflow
 
@@ -31,4 +31,3 @@ Data sources
 3. How mapping groups related product records.
 4. How price types and pricing runs work.
 5. How channels and exports decide what data is published.
-

@@ -1,6 +1,6 @@
 # Customer Help Center
 
-The Help Center explains how to use BAS Platform without requiring access to the source code or knowledge of backend implementation details.
+The Help Center explains how to use PAD Platform without requiring access to the source code or knowledge of backend implementation details.
 
 Use it for practical questions:
 
@@ -14,4 +14,3 @@ Use it for practical questions:
 - how to understand access permissions and history.
 
 The documentation is task-based. It should answer what a user needs to do, what the system will do, and how to diagnose common problems.
-

@@ -1,6 +1,6 @@
 # Exports
 
-Exports produce files or artifacts from BAS Platform data.
+Exports produce files or artifacts from PAD Platform data.
 
 Exports can be used for product feeds, marketplace uploads, partner data exchange, reporting, or generic entity exports.
 
@@ -30,4 +30,3 @@ If an export is empty or incomplete:
 3. check channel readiness;
 4. confirm required prices and translations exist;
 5. review run issues.
-

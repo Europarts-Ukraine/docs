@@ -1,17 +1,23 @@
-# BAS Documentation
+# PAD Documentation
 
 ## Documentation Targets
 
-This Docusaurus project has two documentation targets:
+This Docusaurus project has two production documentation targets and one local
+development workspace:
 
 - **Public docs**: customer Help Center and customer-safe integration reference.
-- **Internal docs**: public docs plus implementation, support, engineering, architecture, operations, and decisions.
+- **Internal docs**: implementation, support, engineering, architecture,
+  operations, and decisions. It must not include public documentation routes.
+- **Workspace**: local-only union of both content trees for navigation and QA.
 
 The default `docusaurus.config.ts` is the public build and must only include
 `content/public`.
 
-`docusaurus.internal.config.ts` is the internal build and may include the full
-`content` tree.
+`docusaurus.internal.config.ts` is the internal build and must include only
+`content/internal` through the docs include patterns.
+
+`docusaurus.workspace.config.ts` is a development convenience. It may include
+the full `content` tree, but must never be used as a production deployment.
 
 ## Content Rules
 
@@ -34,8 +40,22 @@ or LLM/internal prompts in shared React pages, components, or CSS.
 Internal-only landing pages, LLM instructions, playbooks, engineering notes, and
 architecture details belong under `content/internal`.
 
+Short audience-gateway labels and card summaries may live in the matching
+Docusaurus config's `customFields`; shared React components must only render
+that data generically.
+
 The public build runs `scripts/validate-public-build.mjs` after Docusaurus
 build. Keep that check strict so accidental internal content leaks fail CI.
+
+Public, internal, and workspace development use different Docusaurus configs.
+Keep `future.faster.rspackPersistentCache` disabled in every active config: a
+persistent Rspack module graph can become invalid when the same workspace
+switches between content trees. The in-process Rspack compiler remains enabled.
+
+The workspace has two sidebars. Internal pages must only use
+`internalSidebar`; public pages must only use `publicSidebar`. Cross-audience
+navigation belongs on the workspace root and in the workspace navbar, not in
+either product sidebar.
 
 ## URL Rules
 
@@ -63,3 +83,38 @@ content/internal/decisions/
 
 When a new documentation convention or publishing rule is introduced, record it
 here instead of leaving it only in chat history.
+
+## Architecture Documentation Conventions
+
+Internal architecture pages describe the current implemented system and are
+source-backed. Keep the following pages synchronized when an application,
+cross-module contract, or runtime flow changes:
+
+- `content/internal/architecture/system-overview.md` for product and runtime
+  boundaries;
+- `content/internal/architecture/domain-model.md` for the domain mental model;
+- `content/internal/architecture/backend-applications.md` for Django app
+  ownership and dependencies;
+- `content/internal/architecture/runtime-data-flows.md` for cross-application
+  sequences;
+- the focused mechanism page for registry, entity graph, RBAC, history, or
+  soft-delete behavior.
+
+Use Mermaid for relationships and sequences that are materially clearer as a
+diagram. Every diagram must be accompanied by prose that explains its meaning.
+Prefer stable concepts, contracts, and ownership boundaries over file-by-file
+inventories. Source paths may be included as navigation aids for engineers.
+
+## Documentation Visual System
+
+The shared documentation UI uses a PAD-owned neutral visual identity. Do not
+reintroduce Docusaurus starter logos, illustrations, social cards, or copy.
+
+- Keep light and dark theme tokens centralized in `src/css/custom.css`.
+- Light mode is a white neutral interface; dark mode is a true near-black
+  interface. Check contrast and focus states in both modes.
+- Shared landing and layout components under `src/` must remain public-safe.
+- Put internal landing-page copy and links in `content/internal/intro.mdx`, and
+  pass them into generic shared components as data.
+- Use the `pad-mark-*`, `favicon.svg`, and `pad-social-card.svg` assets for PAD
+  documentation identity.
