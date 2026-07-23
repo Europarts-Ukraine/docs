@@ -138,3 +138,22 @@ implementation until an explicit architecture decision is approved.
   packages.
 - After approval, record the choice as an ADR and update Operations,
   onboarding, and architecture documentation together.
+
+## Internal Documentation Publishing
+
+The internal documentation is published as the GitHub project Pages site for
+`Europarts-Ukraine/docs`:
+
+- canonical URL: `https://europarts-ukraine.github.io/docs/`;
+- source branch: `main`;
+- build command: `pnpm run build:internal`;
+- published artifact: `build-internal`;
+- deployment workflow: `.github/workflows/pages.yml`.
+
+Keep `docusaurus.internal.config.ts` configured with
+`url: 'https://europarts-ukraine.github.io'` and `baseUrl: '/docs/'` while the
+site uses the GitHub project URL. Keep the internal docs `routeBasePath` set to
+`'/'`: the repository base URL already provides `/docs/`, so adding another
+`docs` route segment would incorrectly produce `/docs/docs/internal/...`. Do not
+deploy the workspace build. If a custom domain is introduced later, update
+`url`, `baseUrl`, and the route layout together.

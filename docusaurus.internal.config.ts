@@ -16,10 +16,10 @@ const config: Config = {
     },
   },
 
-  url: 'https://internal-docs.pad-platform.example.com',
-  baseUrl: '/',
-  organizationName: 'pad-platform',
-  projectName: 'pad-platform-internal-docs',
+  url: 'https://europarts-ukraine.github.io',
+  baseUrl: '/docs/',
+  organizationName: 'Europarts-Ukraine',
+  projectName: 'docs',
   customFields: {
     homeEyebrow: 'PAD internal documentation',
     homeTitle: 'The internal operating knowledge base.',
@@ -85,7 +85,7 @@ const config: Config = {
         docs: {
           path: 'content',
           include: ['internal/**/*.md', 'internal/**/*.mdx'],
-          routeBasePath: 'docs',
+          routeBasePath: '/',
           sidebarPath: './sidebars.internal.ts',
         },
         blog: false,
