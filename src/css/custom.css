@@ -639,6 +639,26 @@ code {
     padding: 0 0.75rem;
   }
 
+  .navbar-sidebar {
+    border-right: 1px solid var(--pad-border);
+    box-shadow: var(--pad-shadow-lg);
+    height: 100dvh;
+    max-height: 100dvh;
+  }
+
+  .navbar-sidebar__brand {
+    min-height: var(--ifm-navbar-height);
+  }
+
+  .navbar-sidebar__items {
+    height: calc(100dvh - var(--ifm-navbar-height));
+  }
+
+  .navbar-sidebar__item.menu {
+    overscroll-behavior: contain;
+    overflow-y: auto;
+  }
+
   .theme-doc-sidebar-container {
     background: var(--ifm-background-color);
   }
@@ -650,6 +670,10 @@ code {
 }
 
 @media (max-width: 640px) {
+  .navbar__brand {
+    margin-right: 0;
+  }
+
   .theme-doc-markdown > h1:first-child {
     font-size: 2.35rem;
   }
@@ -660,6 +684,12 @@ code {
 
   .pagination-nav {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .navbar__title {
+    display: none;
   }
 }
 

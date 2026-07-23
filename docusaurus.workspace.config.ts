@@ -7,6 +7,7 @@ const config: Config = {
   title: 'PAD Documentation Workspace',
   tagline: 'Internal knowledge and customer documentation in one development workspace',
   url: 'http://localhost',
+  baseUrl: '/',
   projectName: 'pad-platform-docs-workspace',
   customFields: {
     homeEyebrow: 'PAD documentation workspace',

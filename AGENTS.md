@@ -18,6 +18,8 @@ The default `docusaurus.config.ts` is the public build and must only include
 
 `docusaurus.workspace.config.ts` is a development convenience. It may include
 the full `content` tree, but must never be used as a production deployment.
+Keep its `baseUrl` set to `/`; it must not inherit the internal GitHub Pages
+project prefix.
 
 ## Content Rules
 
@@ -113,6 +115,11 @@ reintroduce Docusaurus starter logos, illustrations, social cards, or copy.
 - Keep light and dark theme tokens centralized in `src/css/custom.css`.
 - Light mode is a white neutral interface; dark mode is a true near-black
   interface. Check contrast and focus states in both modes.
+- Use light mode as the default and do not let the operating-system preference
+  override it on a visitor's first load. Keep the manual theme switch available.
+- Use Docusaurus' native compact mobile docs sidebar and keep mobile layout
+  fixes scoped below the desktop breakpoint. Do not change desktop sidebar
+  expansion, controls, or spacing to solve a mobile navigation problem.
 - Shared landing and layout components under `src/` must remain public-safe.
 - Put internal landing-page copy and links in `content/internal/intro.mdx`, and
   pass them into generic shared components as data.
