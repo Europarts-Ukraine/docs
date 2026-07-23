@@ -7,8 +7,11 @@ Use this section for decisions that are broader than one source file or one impl
 ## Examples
 
 - documentation split between public and internal builds;
-- managed single-tenant SaaS as the default deployment model;
+- approved deployment target and customer isolation boundary;
 - storefront customization boundary;
 - backend-driven module registry direction;
 - public vs internal documentation publishing rules.
 
+The deployment target is currently a proposed design, not an accepted
+architecture decision. See
+[Proposed Deployment Architecture](../operations/deployment-model).

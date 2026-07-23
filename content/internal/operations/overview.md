@@ -2,13 +2,16 @@
 
 Operations documentation describes deployment, monitoring, backups, and runtime maintenance.
 
-## Current Direction
+## Current status
 
-The preferred deployment model is managed single-tenant SaaS:
+PAD does not yet have an approved production deployment architecture.
 
-- one codebase;
-- separate installation per customer;
-- separate database per customer;
-- deployed and operated by the PAD Platform team.
+The working product direction is one isolated installation per customer rather
+than application-level multitenancy. The hosting provider, isolation boundary,
+managed versus customer-hosted responsibilities, orchestration platform,
+provisioning workflow, release strategy, backups, observability, and support
+model remain open decisions.
 
-Enterprise on-premise deployments may be supported separately.
+Use [Proposed Deployment Architecture](./deployment-model) for the
+implementation currently under consideration. Record it as an ADR only after
+the architecture is approved.

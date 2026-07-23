@@ -118,3 +118,23 @@ reintroduce Docusaurus starter logos, illustrations, social cards, or copy.
   pass them into generic shared components as data.
 - Use the `pad-mark-*`, `favicon.svg`, and `pad-social-card.svg` assets for PAD
   documentation identity.
+
+## Deployment Documentation Status
+
+PAD does not yet have an approved production deployment target. Keep
+`content/internal/operations/deployment-model.md` framed as a proposed
+implementation until an explicit architecture decision is approved.
+
+- The working product direction is one isolated installation per customer, not
+  application-level multitenancy.
+- Managed cloud, customer-hosted, hybrid, cloud provider, orchestrator,
+  isolation boundary, backup, release, and support choices are open decisions.
+- State repository-backed application constraints as facts, but label proposed
+  infrastructure as a hypothesis.
+- Keep consultant interview questions, meeting preparation, and requested
+  deliverables out of product documentation.
+- `backend/docker-compose.yml` and `backend/docker-compose.dev.yml` are local
+  development assets and must not be described as production deployment
+  packages.
+- After approval, record the choice as an ADR and update Operations,
+  onboarding, and architecture documentation together.
