@@ -1,4 +1,4 @@
-name: Deploy internal documentation to GitHub Pages
+name: Deploy internal documentation to GitHub Pages 
 
 on:
   push:
